@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=700px, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+    function getWordCount(str) {
+        return str.split('').filter((val) => val != "").length
+    }
+    const TextArea = () => {
+        let [text, setText] = React.useState("")
+        return (
+            <form>
+                <textarea type="text"
+                value={text}
+                onChange={(e) => setText(e.target.value)}>
+                </textarea>
+                <br/>
+                {"Word count" + getWordCount(text)}
+                </form>
+        )
+    }
+
+    reactDOM.render(<TextArea/>)
+</script>
+</body>
+</html>
